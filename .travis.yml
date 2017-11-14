@@ -1,6 +1,13 @@
 language: rust
 sudo: false
+cache: cargo
 rust:
   - stable
   - nightly
   - beta
+env:
+  - PATH=$HOME/.cargo/bin:$PATH
+before_script:
+  - cargo install cargo-travis -f
+script:
+  - cargo test ci
